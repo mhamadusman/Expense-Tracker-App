@@ -1,0 +1,70 @@
+<resources>
+    <string name="app_name">Expense Tracker</string>
+
+    <!-- Header -->
+    <string name="search_hint">Find people or merchants</string>
+    <string name="greeting">Hi %s 👋</string>
+    <string name="default_username">User</string>
+
+    <!-- Balance -->
+    <string name="total_balance">Total Balance</string>
+    <string name="default_balance">Rs. 0.00</string>
+    <string name="currency_symbol">Rs.</string>
+
+    <!-- Summary Cards -->
+    <string name="income_label">Income</string>
+    <string name="expense_label">Expense</string>
+    <string name="transactions_count">%d transactions</string>
+
+    <!-- Buttons -->
+    <string name="btn_add_income">Add Income</string>
+    <string name="btn_add_expense">Add Expense</string>
+
+    <!-- Recent Transactions -->
+    <string name="recent_transactions">Recent Transactions</string>
+    <string name="no_transactions">No transactions yet</string>
+
+    <!-- Input Fields -->
+    <string name="hint_description">Description</string>
+    <string name="hint_amount">Amount</string>
+    <string name="hint_category">Category</string>
+
+    <!-- Categories - Income -->
+    <string name="category_salary">Salary</string>
+    <string name="category_freelance">Freelance</string>
+    <string name="category_investment">Investment</string>
+    <string name="category_gift">Gift</string>
+
+    <!-- Categories - Expense -->
+    <string name="category_food">Food</string>
+    <string name="category_transport">Transport</string>
+    <string name="category_shopping">Shopping</string>
+    <string name="category_bills">Bills</string>
+    <string name="category_entertainment">Entertainment</string>
+    <string name="category_health">Health</string>
+    <string name="category_education">Education</string>
+    <string name="category_other">Other</string>
+
+    <!-- Actions -->
+    <string name="delete">Delete</string>
+    <string name="filter">Filter</string>
+    <string name="all_transactions">All</string>
+    <string name="income_only">Income Only</string>
+    <string name="expense_only">Expense Only</string>
+
+
+    <string-array name="transaction_categories">
+        <item>@string/category_salary</item>
+        <item>@string/category_freelance</item>
+        <item>@string/category_investment</item>
+        <item>@string/category_gift</item>
+        <item>@string/category_food</item>
+        <item>@string/category_transport</item>
+        <item>@string/category_shopping</item>
+        <item>@string/category_bills</item>
+        <item>@string/category_entertainment</item>
+        <item>@string/category_health</item>
+        <item>@string/category_education</item>
+        <item>@string/category_other</item>
+    </string-array>
+</resources>

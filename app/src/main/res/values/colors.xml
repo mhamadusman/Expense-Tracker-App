@@ -1,0 +1,29 @@
+<resources>
+    <!-- NayaPay Color Scheme -->
+    <color name="backgroundColor">#F5F5F5</color> <!-- Very light gray background -->
+    <color name="cardBackground">#FFFFFF</color> <!-- White cards -->
+    <color name="primaryPurple">#8B7EFF</color> <!-- NayaPay purple accent -->
+    <color name="darkNavy">#2C2855</color> <!-- Dark navy for text -->
+    <color name="lightGray">#F0EFF5</color> <!-- Light gray for transaction items -->
+    <color name="mediumGray">#9E9E9E</color> <!-- Medium gray for faded text -->
+    <color name="textDark">#1A1A1A</color> <!-- Almost black for headings -->
+    <color name="textLight">#757575</color> <!-- Light gray for subtitles -->
+
+    <!-- Transaction Colors -->
+    <color name="incomeGreen">#4CAF50</color> <!-- Green for income -->
+    <color name="expenseRed">#F44336</color> <!-- Red for expense -->
+
+    <!-- Button Colors -->
+    <color name="incomeButtonColor">#E8F5E9</color> <!-- Light green background -->
+    <color name="expenseButtonColor">#FFEBEE</color> <!-- Light red background -->
+
+    <!-- Icon Background Colors -->
+    <color name="iconBgPurple">#F3F1FF</color>
+    <color name="iconBgPink">#FFE8F0</color>
+    <color name="iconBgBlue">#E3F2FD</color>
+    <color name="iconBgOrange">#FFF3E0</color>
+    <color name="iconBgGreen">#E8F5E9</color>
+
+    <!-- Status Bar -->
+    <color name="statusBarColor">#FFFFFF</color>
+</resources>

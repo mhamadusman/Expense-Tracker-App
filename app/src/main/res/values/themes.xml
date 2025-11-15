@@ -1,0 +1,126 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- ✅ Main Application Theme (NayaPay Style) -->
+    <style name="Theme.ExpenseTracker" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+
+        <!-- 🩵 Primary Colors -->
+        <item name="colorPrimary">@color/primaryPurple</item>
+        <item name="colorPrimaryVariant">@color/darkNavy</item>
+        <item name="colorOnPrimary">@android:color/white</item>
+
+        <!-- 💚 Secondary / Accent Colors -->
+        <item name="colorSecondary">@color/primaryPurple</item>
+        <item name="colorSecondaryVariant">@color/darkNavy</item>
+        <item name="colorOnSecondary">@android:color/white</item>
+
+        <!-- 🩶 Background & Surface -->
+        <item name="android:windowBackground">@color/backgroundColor</item>
+        <item name="colorSurface">@color/cardBackground</item>
+        <item name="colorOnSurface">@color/textDark</item>
+
+        <!-- 📝 Text Colors -->
+        <item name="android:textColor">@color/textDark</item>
+        <item name="android:textColorPrimary">@color/textDark</item>
+        <item name="android:textColorSecondary">@color/textLight</item>
+        <item name="android:textColorHint">@color/mediumGray</item>
+
+        <!-- 🖋️ Font Family -->
+        <item name="android:fontFamily">@font/roboto_regular</item>
+        <item name="fontFamily">@font/roboto_regular</item>
+
+        <!-- 🧩 Material Components Styling -->
+        <item name="materialButtonStyle">@style/Widget.App.Button</item>
+        <item name="materialCardViewStyle">@style/Widget.App.CardView</item>
+        <item name="textInputStyle">@style/Widget.App.TextInputLayout</item>
+
+        <!-- 🌈 Status Bar (White for NayaPay look) -->
+        <item name="android:statusBarColor">@color/statusBarColor</item>
+        <item name="android:windowLightStatusBar" tools:targetApi="m">true</item> <!-- Dark icons on light status bar -->
+
+        <!-- 📱 Navigation Bar -->
+        <item name="android:navigationBarColor">@color/backgroundColor</item>
+        <item name="android:windowLightNavigationBar" tools:targetApi="o_mr1">true</item>
+
+        <!-- 🎨 Other Window Attributes -->
+        <item name="android:windowContentTransitions">true</item>
+        <item name="android:windowDrawsSystemBarBackgrounds">true</item>
+
+    </style>
+
+    <!-- ========================================== -->
+    <!-- Custom Button Style -->
+    <!-- ========================================== -->
+    <style name="Widget.App.Button" parent="Widget.MaterialComponents.Button">
+        <item name="cornerRadius">28dp</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="elevation">0dp</item>
+    </style>
+
+    <!-- ========================================== -->
+    <!-- Custom CardView Style -->
+    <!-- ========================================== -->
+    <style name="Widget.App.CardView" parent="Widget.MaterialComponents.CardView">
+        <item name="cardCornerRadius">16dp</item>
+        <item name="cardElevation">0dp</item>
+        <item name="cardBackgroundColor">@color/cardBackground</item>
+    </style>
+
+    <!-- ========================================== -->
+    <!-- Custom TextInputLayout Style -->
+    <!-- ========================================== -->
+    <style name="Widget.App.TextInputLayout" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="boxStrokeColor">@color/primaryPurple</item>
+        <item name="boxStrokeWidth">2dp</item>
+        <item name="boxCornerRadiusTopStart">12dp</item>
+        <item name="boxCornerRadiusTopEnd">12dp</item>
+        <item name="boxCornerRadiusBottomStart">12dp</item>
+        <item name="boxCornerRadiusBottomEnd">12dp</item>
+        <item name="hintTextColor">@color/mediumGray</item>
+    </style>
+
+    <!-- ========================================== -->
+    <!-- 🖤 DARK THEME (Optional - for future) -->
+    <!-- ========================================== -->
+    <style name="Theme.ExpenseTracker.Dark" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+
+        <!-- Primary Colors -->
+        <item name="colorPrimary">@color/primaryPurple</item>
+        <item name="colorPrimaryVariant">@color/darkNavy</item>
+        <item name="colorOnPrimary">@android:color/white</item>
+
+        <!-- Secondary Colors -->
+        <item name="colorSecondary">@color/primaryPurple</item>
+        <item name="colorOnSecondary">@android:color/white</item>
+
+        <!-- Dark Background -->
+        <item name="android:windowBackground">#1A1A1A</item> <!-- Dark background -->
+        <item name="colorSurface">#2C2C2C</item> <!-- Dark cards -->
+        <item name="colorOnSurface">@android:color/white</item>
+
+        <!-- Text Colors -->
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textColorPrimary">@android:color/white</item>
+        <item name="android:textColorSecondary">#B0B0B0</item>
+
+        <!-- Font Family -->
+        <item name="android:fontFamily">@font/roboto_regular</item>
+
+        <!-- Status & Navigation Bars -->
+        <item name="android:statusBarColor">#000000</item>
+        <item name="android:navigationBarColor">#1A1A1A</item>
+        <item name="android:windowLightStatusBar" tools:targetApi="m">false</item>
+        <item name="android:windowLightNavigationBar" tools:targetApi="o_mr1">false</item>
+    </style>
+
+    <!-- ========================================== -->
+    <!-- 🌟 SPLASH SCREEN THEME -->
+    <!-- ========================================== -->
+    <style name="Theme.ExpenseTracker.Splash" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="android:windowBackground">@drawable/splash_background</item>
+        <item name="android:statusBarColor">@color/primaryPurple</item>
+        <item name="android:navigationBarColor">@color/primaryPurple</item>
+    </style>
+
+</resources>

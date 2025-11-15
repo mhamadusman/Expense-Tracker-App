@@ -1,0 +1,41 @@
+# Android / Gradle files
+*.iml
+.gradle
+local.properties
+
+# Idea
+.idea/
+.DS_Store
+
+# Build outputs
+/build
+app/build/
+captures/
+.externalNativeBuild
+.cxx
+
+# APK / Bundles
+*.apk
+*.ap_
+*.aab
+
+# Signing keys
+*.jks
+*.keystore
+
+# Firebase
+google-services.json
+
+# Crashlytics
+crashlytics-build.properties
+
+# Navigation
+navigation.json
+
+# Lint
+lint-report.html
+lint-results.html
+lint-results.xml
+
+# Kotlin cache
+.kotlin/
