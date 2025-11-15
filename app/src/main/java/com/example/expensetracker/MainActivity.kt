@@ -3,6 +3,10 @@ package com.example.expensetracker
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
+import android.text.Editable
+import android.text.TextWatcher
+import android.widget.EditText
+import android.widget.LinearLayout
 import android.widget.ArrayAdapter
 import android.widget.ImageView
 import android.widget.Spinner
@@ -25,6 +29,12 @@ enum class TransactionFilter {
 
 class MainActivity : AppCompatActivity() {
 
+
+    // --- NEW VARIABLES FOR SEARCH & NO RESULTS ---
+    private var currentSearchQuery: String = "" // Holds the text typed by the user
+    private lateinit var etSearchQuery: EditText // The search input field
+    private lateinit var llNoResults: LinearLayout // To show "No results found"
+    // ---------------------------------------------
     // --- NEW CONSTANTS FOR DATA PERSISTENCE ---
     private val PREFS_NAME = "ExpenseTrackerPrefs"
     private val TRANSACTIONS_KEY = "all_transactions_json"
@@ -58,6 +68,7 @@ class MainActivity : AppCompatActivity() {
         initViews()
         setupRecyclerView()
         setupClickListeners()
+        setupSearchListener()
         // Initialize UI with current data (0 or loaded data)
         updateUI()
         // Display the list based on the default filter (ALL)
@@ -78,6 +89,11 @@ class MainActivity : AppCompatActivity() {
         // NEW: Initialize Count and Icon Views from the updated XML
         tvIncomeCount = findViewById(R.id.tvIncomeCount)
         tvExpenseCount = findViewById(R.id.tvExpenseCount)
+        // NEW: Initialize the search EditText
+        etSearchQuery = findViewById(R.id.etSearchQuery)
+
+        // NEW: Initialize the "No Results" container (must be added in XML, Step 3)
+        llNoResults = findViewById(R.id.llNoResultsFound)
 
     }
     // **FEATURE 2 - SAVE DATA IN onPause()**
@@ -88,6 +104,28 @@ class MainActivity : AppCompatActivity() {
     override fun onPause() {
         super.onPause()
         saveTransactions()
+    }
+
+    /**
+     * IMPLEMENTATION HINT: Uses TextWatcher to perform real-time search as the user types.
+     */
+    private fun setupSearchListener() {
+        etSearchQuery.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+                // Not used
+            }
+
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                // Not used
+            }
+
+            override fun afterTextChanged(s: Editable?) {
+                // Update the search query state immediately after text changes
+                currentSearchQuery = s.toString().trim()
+                // Re-run the main filtering/searching function
+                updateFilteredListAndUI()
+            }
+        })
     }
     // ----------------------------------------------------
     // --- FEATURE 2: SAVE/LOAD FUNCTIONS IMPLEMENTATION ---
@@ -335,14 +373,38 @@ class MainActivity : AppCompatActivity() {
     }
 
     // NEW: Filter transactions and update the RecyclerView
+    /**
+     * DELIVERABLE: Updates the RecyclerView list by applying the current
+     * TransactionFilter (Income/Expense) and the current Search Query (by description).
+     */
     private fun updateFilteredListAndUI() {
-        val filteredList = when (currentFilter) {
+        // 1. Apply Type Filter (Income/Expense/All)
+        var filteredList = when (currentFilter) {
             TransactionFilter.ALL -> allTransactions
             TransactionFilter.INCOME -> allTransactions.filter { it.type == TransactionType.INCOME }
             TransactionFilter.EXPENSE -> allTransactions.filter { it.type == TransactionType.EXPENSE }
         }
 
-        // This relies on the updateList function in TransactionAdapter
+        // 2. Apply Search Filter (by description if query is not empty)
+        if (currentSearchQuery.isNotEmpty()) {
+            val query = currentSearchQuery.lowercase()
+
+            // Filter the already type-filtered list by checking if the description contains the query
+            filteredList = filteredList.filter {
+                it.description.lowercase().contains(query)
+            }
+        }
+
+        // 3. Handle "No results found" message requirement
+        if (filteredList.isEmpty() && allTransactions.isNotEmpty()) {
+            llNoResults.visibility = View.VISIBLE
+            rvTransactions.visibility = View.GONE
+        } else {
+            llNoResults.visibility = View.GONE
+            rvTransactions.visibility = View.VISIBLE
+        }
+
+        // 4. Update the RecyclerView
         transactionAdapter.updateList(filteredList)
     }
 }
